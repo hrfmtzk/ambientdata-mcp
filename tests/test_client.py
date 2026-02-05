@@ -4,7 +4,7 @@ import pytest
 import respx
 from httpx import Response
 
-from ambientdata_mcp.client import AmbientClient
+from ambient_mcp.client import AmbientClient
 
 
 @pytest.mark.asyncio

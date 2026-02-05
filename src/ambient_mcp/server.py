@@ -3,20 +3,20 @@ import asyncio
 from mcp.server.fastmcp import Context, FastMCP
 from mcp.server.session import ServerSession
 
-from ambientdata_mcp.client import AmbientClient
-from ambientdata_mcp.models import (
+from ambient_mcp.client import AmbientClient
+from ambient_mcp.models import (
     GetDataErrorOutput,
     GetDataInput,
     GetDataOutput,
     GetDataResult,
 )
-from ambientdata_mcp.transformers import (
+from ambient_mcp.transformers import (
     build_data_item,
     build_error_output,
     extract_field_labels,
 )
 
-mcp = FastMCP("ambientdata-mcp")
+mcp = FastMCP("ambient-mcp")
 
 
 @mcp.tool(name="get_data")
@@ -24,7 +24,7 @@ async def get_data(
     params: GetDataInput,
     ctx: Context[ServerSession, None],
 ) -> GetDataResult:
-    """Retrieve AmbientData items by time range or latest count."""
+    """Retrieve Ambient items by time range or latest count."""
     await ctx.info(f"get_data called with {params}")
 
     try:

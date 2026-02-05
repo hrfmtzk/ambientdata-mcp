@@ -1,9 +1,9 @@
 import pytest
 from pytest_mock import MockFixture
 
-from ambientdata_mcp.client import ApiResponse
-from ambientdata_mcp.models import GetDataErrorOutput, GetDataInput, GetDataOutput
-from ambientdata_mcp.server import get_data
+from ambient_mcp.client import ApiResponse
+from ambient_mcp.models import GetDataErrorOutput, GetDataInput, GetDataOutput
+from ambient_mcp.server import get_data
 
 
 class DummyContext:
@@ -29,15 +29,15 @@ async def test_get_data_returns_error_output(mocker: MockFixture) -> None:
     context = DummyContext()
 
     mocker.patch(
-        "ambientdata_mcp.server.AmbientClient.get_channel_properties",
+        "ambient_mcp.server.AmbientClient.get_channel_properties",
         return_value=ApiResponse(status_code=200, payload={}, raw_body=""),
     )
     mocker.patch(
-        "ambientdata_mcp.server.AmbientClient.get_data",
+        "ambient_mcp.server.AmbientClient.get_data",
         return_value=ApiResponse(status_code=500, payload={}, raw_body=""),
     )
     mocker.patch(
-        "ambientdata_mcp.server.build_error_output",
+        "ambient_mcp.server.build_error_output",
         return_value=GetDataErrorOutput(category="upstream", message="boom"),
     )
 
@@ -60,7 +60,7 @@ async def test_get_data_returns_success_output(mocker: MockFixture) -> None:
     context = DummyContext()
 
     mocker.patch(
-        "ambientdata_mcp.server.AmbientClient.get_channel_properties",
+        "ambient_mcp.server.AmbientClient.get_channel_properties",
         return_value=ApiResponse(
             status_code=200,
             payload={"d1": {"name": "temperature"}},
@@ -68,14 +68,14 @@ async def test_get_data_returns_success_output(mocker: MockFixture) -> None:
         ),
     )
     mocker.patch(
-        "ambientdata_mcp.server.AmbientClient.get_data",
+        "ambient_mcp.server.AmbientClient.get_data",
         return_value=ApiResponse(
             status_code=200,
             payload=[{"created": "2024-01-01T00:00:00Z", "d1": 1}],
             raw_body="",
         ),
     )
-    mocker.patch("ambientdata_mcp.server.build_error_output", return_value=None)
+    mocker.patch("ambient_mcp.server.build_error_output", return_value=None)
 
     result = await get_data(params, context)
 
@@ -98,7 +98,7 @@ async def test_get_data_returns_validation_error_on_exception(
     context = DummyContext()
 
     mocker.patch(
-        "ambientdata_mcp.server.AmbientClient.get_channel_properties",
+        "ambient_mcp.server.AmbientClient.get_channel_properties",
         side_effect=RuntimeError("broken"),
     )
 
