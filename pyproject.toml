@@ -1,7 +1,7 @@
 [project]
-name = "ambientdata-mcp"
+name = "ambient-mcp"
 version = "0.1.0"
-description = "MCP for AmbientData"
+description = "MCP for Ambient"
 authors = [{ name = "Hirofumi Tsuzuki", email = "hrfm.tsuzuki@gmail.com" }]
 requires-python = ">=3.13,<4.0"
 dependencies = [
@@ -11,7 +11,7 @@ dependencies = [
 ]
 
 [project.scripts]
-ambientdata-mcp = "ambientdata_mcp.server:main"
+ambient-mcp = "ambient_mcp.server:main"
 
 
 [build-system]
@@ -36,7 +36,7 @@ dev = [
 minversion = "7.0"
 testpaths = ["tests"]
 pythonpath = ["src"]
-addopts = ["--cov=ambientdata_mcp", "--cov-report=term-missing"]
+addopts = ["--cov=ambient_mcp", "--cov-report=term-missing"]
 filterwarnings = [
     "ignore::DeprecationWarning:pytest_asyncio.*",
     "ignore::pydantic.warnings.PydanticDeprecatedSince20",
@@ -50,7 +50,7 @@ skip-string-normalization = false
 profile = "black"
 line_length = 88
 src_paths = ["src", "tests"]
-known_first_party = ["ambientdata_mcp"]
+known_first_party = ["ambient_mcp"]
 
 [tool.ruff]
 line-length = 88

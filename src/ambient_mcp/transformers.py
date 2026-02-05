@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from ambientdata_mcp.client import ApiResponse
-from ambientdata_mcp.models import DataItem, FieldLabels, GetDataErrorOutput, Number
+from ambient_mcp.client import ApiResponse
+from ambient_mcp.models import DataItem, FieldLabels, GetDataErrorOutput, Number
 
 
 def build_error_output(

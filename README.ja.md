@@ -1,4 +1,4 @@
-# ambientdata-mcp
+# ambient-mcp
 
 [English](README.md) | 日本語
 
@@ -12,7 +12,7 @@ MCP クライアントから `get_data` ツールを呼び出し、Ambient の�
 PyPI へは未公開のため、`uvx` に Git リポジトリを指定して起動します。
 
 ```sh
-uvx git+https://github.com/hrfmtzk/ambientdata-mcp
+uvx git+https://github.com/hrfmtzk/ambient-mcp
 ```
 
 ## MCP クライアント設定例
@@ -22,9 +22,9 @@ uvx git+https://github.com/hrfmtzk/ambientdata-mcp
 ```json
 {
   "mcpServers": {
-    "ambientdata": {
+    "ambient": {
       "command": "uvx",
-      "args": ["git+https://github.com/hrfmtzk/ambientdata-mcp"]
+      "args": ["git+https://github.com/hrfmtzk/ambient-mcp"]
     }
   }
 }

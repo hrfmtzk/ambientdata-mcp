@@ -1,7 +1,7 @@
 import pytest
 
-from ambientdata_mcp.client import ApiResponse
-from ambientdata_mcp.transformers import (
+from ambient_mcp.client import ApiResponse
+from ambient_mcp.transformers import (
     build_data_item,
     build_error_output,
     extract_field_labels,

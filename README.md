@@ -1,4 +1,4 @@
-# ambientdata-mcp
+# ambient-mcp
 
 English | [日本語](README.ja.md)
 
@@ -12,7 +12,7 @@ You can call the `get_data` tool from your MCP client to fetch the latest values
 The package is not yet published on PyPI, so run it via `uvx` with the Git repository.
 
 ```sh
-uvx git+https://github.com/hrfmtzk/ambientdata-mcp
+uvx git+https://github.com/hrfmtzk/ambient-mcp
 ```
 
 ## MCP Client Configuration Example
@@ -22,9 +22,9 @@ Below is a typical MCP client configuration. Use `uvx` as the command and pass t
 ```json
 {
   "mcpServers": {
-    "ambientdata": {
+    "ambient": {
       "command": "uvx",
-      "args": ["git+https://github.com/hrfmtzk/ambientdata-mcp"]
+      "args": ["git+https://github.com/hrfmtzk/ambient-mcp"]
     }
   }
 }

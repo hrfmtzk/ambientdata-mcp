@@ -1,6 +1,6 @@
 import pytest
 
-from ambientdata_mcp.models import GetDataInput
+from ambient_mcp.models import GetDataInput
 
 
 def test_get_data_input_requires_from_and_to_together() -> None:
